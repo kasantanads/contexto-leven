@@ -122,6 +122,8 @@ const ALWAYS_MASK = new Set([
   "document", "cpf", "rg", "email", "cellphone", "phone", "telephone", "celular",
   "address", "complement", "neighborhood", "zipcode", "photo", "instructorphoto",
   "whatsappusername", "whatsappbsuid", "gympassid", "responsiblename",
+  "documentid", "passport", "accesscardnumber", "photourl", "number", "notes",
+  "memberdocument",
 ]);
 const PERSON_ID_KEYS = ["idMember", "idProspect", "idResponsible"];
 
