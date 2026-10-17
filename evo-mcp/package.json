@@ -1,0 +1,15 @@
+{
+  "name": "evo-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Conector MCP para a API do EVO (W12), com política de acesso e mascaramento de dados pessoais",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.0"
+  }
+}
