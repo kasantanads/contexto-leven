@@ -57,6 +57,20 @@ assert.equal(masked.prospect.document, "1***");
 assert.equal(masked.prospect.birthDate, "1990-**-**");
 assert.equal(masked.prospect.currentStep, "AT");
 assert.equal(masked.prospect.contacts[0].description, "a***");
+// campos que já vazaram uma vez (RG em documentId): nunca devem passar
+const m2 = maskPii({ idMember: 1, documentId: "11.111.111-1", passport: "AB123", accessCardNumber: "999", photoUrl: "http://x/y.jpg", number: "42", notes: "texto livre com nome", status: "Active", spots: [{ number: 1, available: true }] });
+assert.equal(m2.documentId, "1***");
+assert.equal(m2.passport, "A***");
+assert.equal(m2.accessCardNumber, "9***");
+assert.equal(m2.photoUrl, "h***");
+assert.equal(m2.number, "4***");
+assert.equal(m2.notes, "t***");
+assert.equal(m2.status, "Active");
+assert.equal(m2.spots[0].number, 1); // número de vaga (numérico) não é mascarado
+const m3 = maskPii({ idMember: 7, name: "NOME INVENTADO", memberDocument: "00000000000", nameMembership: "PT 2x Anual", reasonCancellation: "motivo" });
+assert.equal(m3.memberDocument, "0***");
+assert.equal(m3.name, "N***");
+assert.equal(m3.nameMembership, "PT 2x Anual"); // nome do plano não é dado pessoal
 // ── unidades ──
 const four = loadUnits({
   EVO_UNIT_UMI_USER: "u1", EVO_UNIT_UMI_KEY: "k1",

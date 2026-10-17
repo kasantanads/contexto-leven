@@ -3,7 +3,7 @@
 Projeto de duas pessoas, cada uma com a sua conta Claude. **Leia este arquivo e `docs/00-como-colaborar.md` antes de qualquer coisa.**
 
 ## Objetivo
-Fazer o sistema de treino **Leven** (app no Lovable, workspace "Sistema Treinos", projeto "Leven Treinos") cobrir a **jornada do aluno** do mapa mental do Miro ("Sistema Treino"), a partir dos dados do **EVO** (sistema de gestão das academias, API da W12).
+Fazer o sistema de treino **Leven** (app no Lovable, workspace "Treino 2" desde 27/10/2026 (antes "Sistema Treinos"), projeto "Leven Treinos", mesmo id) cobrir a **jornada do aluno** do mapa mental do Miro ("Sistema Treino"), a partir dos dados do **EVO** (sistema de gestão das academias, API da W12).
 
 A jornada começa no **Agendamento da AT (aula teste)** e segue: aula experimental → fechamento do plano → 1ª aula → aulas → régua de contato → novo ciclo de treino.
 

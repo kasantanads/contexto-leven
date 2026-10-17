@@ -20,7 +20,7 @@ Objetivo: cada pessoa trabalha com o seu Claude, sem se atropelar e sem perder o
 - Se as duas usarem a mesma chave, o limite de 40 requisições por minuto é dividido. **Avise no diário antes de varreduras grandes** (mais de umas 100 chamadas).
 - Leitura é o padrão. Escrita no EVO exige decisão registrada.
 
-## Lovable (projeto "Leven Treinos", workspace "Sistema Treinos")
+## Lovable (projeto "Leven Treinos", workspace "Treino 2" desde 27/10/2026, antes "Sistema Treinos"; o id do projeto não mudou)
 - O projeto aceita edição de qualquer membro do workspace. **Só uma pessoa edita por vez.**
 - Antes de enviar algo ao agente do Lovable: `get_project` e veja `last_edited_at`. Se foi editado há pouco, pergunte à outra pessoa.
 - Registre no diário cada mensagem enviada ao Lovable, com a tag `[LOVABLE]`, o resumo do pedido e o resultado.
