@@ -2,6 +2,11 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: plano para remover o filtro "Todas as unidades" (só desenho, nada implementado)
+- **Relato da usuária:** a regra de AT já foi corrigida e as ATs já refletem. **[V, banco, só leitura]:** 10 ATs não canceladas criadas desde as 17h UTC: Campo Belo 4, Moema Índios 3, Moema Pássaros 3, Paraíso 0. Pediu o plano para remover "Todas as unidades".
+- **[V, leitura do `main` `8cb86bf`]:** "Todas unidades" aparece na **Agenda** (`professor/Agenda.tsx`, admin/supervisor/coordenador; o filtro só restringe a lista de professores, a busca de sessões `agenda-sessions` não filtra por `unit_id`), na lista de **Aulas teste** (`TrialClassesTab` com `UnitMultiSelect`: seleção vazia = todas), nas listas de Alunos, Professores, Equipe e Usuários (também `UnitMultiSelect`), nos dashboards Admin e Supervisor, em Atribuições e na configuração de sincronização (`EvoAutoSyncCard`, que é configuração, não filtro).
+- **Plano proposto:** unidade única obrigatória (sem "Todas"), padrão = última usada, senão a primeira unidade vinculada; filtrar sessões por `unit_id` na Agenda; lista de AT com seleção única; só front, sem migração. Aguarda a decisão do escopo (Agenda e Aulas teste, ou também listas e dashboards).
+
 ## 2026-11-25: publicação do `main` do app iniciada (Anamnese, badges do AP-08, AP-08 obrigatório e mudanças do colaborador)
 - **Autorização da usuária:** "sim" (conferir se o Lovable enxerga o `187ad99` e publicar). `list_edits` mostrou o Lovable em `187ad99` e, depois dele, o PR #9 do colaborador (`8cb86bf`, 17:33 UTC): "Agenda: selo AT na aula experimental e contraste do texto". Publiquei o `main` como estava, inclusive o PR #9.
 - **Publicação:** `deploy_project` devolveu `pending` (`adc7ac59…`, `https://leventreino.lovable.app`). **[H]** concluída; não verifiquei o resultado do deploy. Sem mensagem ao agente e sem crédito.
