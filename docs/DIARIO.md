@@ -2,6 +2,13 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: "Todas as unidades" removido da Agenda e das Aulas teste no ramo `feat/unidade-unica` (commit `edb2203`, NÃO mesclado)
+- **Autorização da usuária:** "segue". Sem resposta às 3 perguntas do plano, adotei as recomendações: escopo só **Agenda** e **Aulas teste**, dashboards e demais listas mantidos, última unidade lembrada.
+- **[V, feito no ramo, só front]:** `selectedUnit.ts` + `useSelectedUnit` (última usada > primeira vinculada > primeira da lista; guardada por usuário no navegador); Agenda (admin/supervisor/coordenador) sem a opção, com sessões, reposições e agenda base filtradas pela unidade (`unit_id`; base pelo aluno), e nada buscado antes de a unidade estar definida; Aulas teste com seletor de uma unidade (some com uma só). Corrige a AT da Moema Índios aparecendo em Campo Belo.
+- **Testes (rodados por mim):** 97 arquivos, **810 testes** passando (12 novos); `tsc` limpo; lint dos arquivos novos limpo e `Agenda.tsx` com os mesmos 41 erros de antes.
+- **Limite:** a Agenda não tem teste automatizado do filtro (tela grande demais para simular); foi verificada por leitura e pelo `tsc`. Conferir na tela depois de publicar: filtrar Campo Belo e não ver sessões da Moema Índios.
+- **Pendente:** revisão e OK da usuária para mesclar; depois publicar. Fora do escopo e inalterado: dashboards Admin e Supervisor, listas de Alunos/Professores/Equipe/Usuários, Atribuições, Agenda do professor.
+
 ## 2026-11-25: plano para remover o filtro "Todas as unidades" (só desenho, nada implementado)
 - **Relato da usuária:** a regra de AT já foi corrigida e as ATs já refletem. **[V, banco, só leitura]:** 10 ATs não canceladas criadas desde as 17h UTC: Campo Belo 4, Moema Índios 3, Moema Pássaros 3, Paraíso 0. Pediu o plano para remover "Todas as unidades".
 - **[V, leitura do `main` `8cb86bf`]:** "Todas unidades" aparece na **Agenda** (`professor/Agenda.tsx`, admin/supervisor/coordenador; o filtro só restringe a lista de professores, a busca de sessões `agenda-sessions` não filtra por `unit_id`), na lista de **Aulas teste** (`TrialClassesTab` com `UnitMultiSelect`: seleção vazia = todas), nas listas de Alunos, Professores, Equipe e Usuários (também `UnitMultiSelect`), nos dashboards Admin e Supervisor, em Atribuições e na configuração de sincronização (`EvoAutoSyncCard`, que é configuração, não filtro).
