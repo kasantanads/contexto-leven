@@ -2,6 +2,12 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: AT real fornecida pela usuária (Campo Belo, 26/11, 20h–21h, Personal); leitura pedida ao agente
+- **Fornecido pela usuária (print do painel do EVO):** o participante aparece com a marca "(Aula Experimental)" no horário de 26/11 20:00–21:00, Personal Trainer, Campo Belo. **[V pela tela]** o painel mostra um indicador de AT; **[H]** qual campo da API o alimenta (`flAulaExperimentalServico`? `idItemVenda`?). Nome do participante **não registrado** em arquivo nem na mensagem ao agente.
+- **Mudança de outra pessoa [V, `list_edits`]:** PR #1 de `fernandosmoraes` mesclado hoje (commits `8478948` 15:18 e `e577d65` 15:32 UTC): nova função `evo-web-sync-trials` (lê o perfil do prospect no painel e completa só e-mail e celular vazios de quem já tem AT) e opção "Painel" na sincronização automática; migração `0040` aceita `source web` em `trials`; nenhuma linha existente muda. Avisei o agente para reler o `main`.
+- **[LOVABLE] enviado, SOMENTE LEITURA, com OK da usuária (`umsg_01m89npv…`, `wait=false`):** `dump_fields` nesse horário; comparar com os dois casos falsos; dizer qual campo prova a AT real; simular (sem gravar) se a regra atual a aceitaria; se não, só propor o ajuste e os testes, sem implementar.
+- **Pendente:** ler a resposta; só então decidir o ajuste da regra.
+
 ## 2026-11-25: limpeza das AT falsas feita e regra estrita no ar (commit `dd67865`); falta validar com uma AT real
 - **[V, banco, só leitura, 25/11]:** 104 sessões do painel; 93 canceladas, 11 não canceladas; 75 com a nota "Captura indevida do painel EVO" e 75 linhas em `backup_panel_trial_cleanup` (reversão possível); nenhuma AT de outro caminho alterada; os prospects 45029, 58740 e 46149 ficaram sem sessão ativa. As 11 restantes são de outubro (carga de 22/10 pela API paga), 7 `done`, 1 `in_progress` desde 29/10, 2 `scheduled` com data já passada (1129406-p59338 de 26/10 e 1004904-p59334 de 10/11).
 - **Regra nova (relato do agente, 7,7 créditos, suíte 736):** só cria AT com `flAulaExperimentalServico`, fora de turma fixa (`idTurma`), 1 por prospect em 30 dias; presença só com check-in real após o fim, só em AT. Leitura `dump_fields` (só admin). Conferência de hoje nas 4 unidades: **0 AT criadas**; 23 prospects ignorados (UMI 16, Paraíso 4, Campo Belo 2, Moema Pássaros 1). Nada publicado, sem e-mail.
