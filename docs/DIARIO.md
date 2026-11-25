@@ -2,6 +2,12 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: badges no AP-08 mesclado em `main` do app (`833c242`); publicação aguardando a sincronização do Lovable
+- **Pedido da usuária:** cada opção marcada do AP-08 deve aparecer como badge, e não separada por ";". Ramo `feat/ap08-badges` (só a visualização salva muda; texto gravado igual, sem migração). `tsc` e lint limpos nos arquivos alterados; suíte **765 testes** passando.
+- **Com OK da usuária ("ok"):** avanço rápido do ramo para `main` (`8c69d8f` → `833c242`), sem PR. Em ~16:20 UTC o Lovable ainda mostrava `8c69d8f` como último commit (da vez anterior a sincronização levou ~3 min); **não publiquei** para não levar a versão antiga.
+- **Observação:** `get_project` agora mostra `workspace_id` = `workspace_01m470b8…` ("Sistema Treinos"), não mais "Data Flow" (`726de0141629ec647725`) como em 24/11. Alguém moveu o projeto de workspace; não investiguei (pode afetar créditos).
+- **Pendente:** quando o Lovable enxergar `833c242`, publicar e conferir os badges na tela.
+
 ## 2026-11-25: migração 0041 aplicada pela usuária no SQL editor; conferida no banco
 - **[V, só leitura, 25/11]:** `save_presential_anamnesis(uuid, jsonb)` contém `health_required`, a variável `needs_health`, o gatilho de medicamento (PA-14) e manteve `empty_answers`; continua SECURITY INVOKER (como antes); 4.015 caracteres. A usuária rodou o `CREATE OR REPLACE` colado do chat (sem passar pelo Lovable, sem crédito).
 - **Observação:** versões v2 com conversa presencial: 12 (eram 11 hoje cedo), 9 com AP-08 (eram 8); a última versão é de 16:08 UTC, logo depois da publicação, provavelmente um teste ou uso real da usuária. Não investiguei.
