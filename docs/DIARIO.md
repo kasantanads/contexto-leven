@@ -2,6 +2,13 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: AP-08 obrigatório implementado no ramo `feat/ap08-obrigatorio` (commit `8c69d8f`, NÃO mesclado, migração NÃO aplicada)
+- **Autorização da usuária:** "pode seguir", depois das decisões (basta um campo; só ao salvar; sem cobrança retroativa) e das listas de opções em `docs/09-ap08-obrigatorio-estrutura.md`. A usuária avisou que o Lovable está **sem créditos**: nada foi enviado ao agente. Repositório do app (`fernandosmoraes/leventreino`) anexado à sessão; clone em `/home/user/leventreino`.
+- **[V] Feito no ramo (só front + arquivo de migração):** regra `healthMissing`/`isHealthAnswerFilled` (`presentialAnswers.ts`, `presentialHealth.ts`); `preparePresentialAnswers` lança `health_required`; formulário com caixas de seleção (localização por região e lado, quando ocorre, movimentos que pioram, impacto, situação do quadro opcional, acompanhamento + profissionais, orientações, documento do PAR-Q com "Nenhum documento ainda"), cada uma com "Outro"; rótulo "Obrigatório", aviso e botão de salvar travado; mensagem específica também na ficha (`StudentAnamnesisPage`). Mesmo texto serializado: sem migração de dados; texto antigo continua legível (aparece em "Outro"/"Outras informações").
+- **Testes (rodados por mim):** suíte completa 92 arquivos, **764 testes passando**; `tsc` limpo; arquivos novos/alterados sem erro de lint (os 42 erros de lint de `StudentAnamnesisPage.tsx` já existiam).
+- **Migração `0041_ap08_health_required.sql`:** só o corpo de `save_presential_anamnesis` recusa com `health_required` (mesma regra, via `preanamnesis_payload`). **Escrita, não aplicada:** aplicar exige o agente do Lovable (sem créditos) ou outro meio combinado com a usuária. Até lá a trava vale só na tela e na ficha (front).
+- **Pendente:** revisão do diff pela usuária; mesclar em `main` só com OK; publicar o site; decidir como aplicar a migração; testar com um aluno real com gatilho.
+
 ## 2026-11-25: estrutura do AP-08 obrigatório (só desenho, nada implementado)
 - **Pedido da usuária:** na conversa presencial, "Saúde e segurança" (AP-08) obrigatório quando houver dor, lesão, cirurgia, medicamento, condição clínica ou "sim" no PAR-Q; alterações pelo git; estruturar e mostrar antes de implementar.
 - **[V, leitura do `main` e do banco]:** o AP-08 já aparece só nesses gatilhos (`hasHealth`), mas nenhum campo é obrigatório: salvar exige uma resposta qualquer (`preparePresentialAnswers`; RPC `save_presential_anamnesis`). `trial_finish` não checa saúde (trava de conduta saiu em 24/11). Versões v2: 21; 11 com conversa presencial; 8 com AP-08; 17 com gatilho básico; **2 com gatilho e presencial sem AP-08**.
