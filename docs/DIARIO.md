@@ -2,6 +2,11 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: PA-07 (posições livres) mesclado em `main` do app (`6f812d9`); publicação com a usuária
+- **Pedido da usuária:** "sim" (mesclar). `main` não tinha andado (`4493563`, PR #17 do colaborador: `anamnesis-dispatch` com `send_whatsapp`); avanço rápido do ramo para o `main`. `tsc` limpo; suíte do ramo com **101 arquivos, 849 testes** passando. **Não publiquei.**
+- **Atenção ao publicar:** o `main` leva junto o PR #17 do colaborador (envio manual por WhatsApp e função `anamnesis-dispatch`); não verifiquei se a função e a migração dele estão aplicadas.
+- **Para conferir depois de publicar:** na pré-anamnese (página pública e editor de correção), escolher a 1ª prioridade em um objetivo e ver que ela não aparece nos outros; desfazer e ver que volta.
+
 ## 2026-11-25: PA-07: posição de prioridade já usada não aparece nos demais objetivos, no ramo `fix/prioridades-posicoes-livres` (NÃO mesclado)
 - **Pedido da usuária (print da pré-anamnese):** ao escolher a 1ª prioridade, ela não deve mais estar disponível nos outros objetivos.
 - **[V]** Estava em `RankField.tsx`, componente compartilhado pela **página pública** e pelo **editor de correção da equipe**: todos os seletores ofereciam as 5 posições e a repetição só gerava erro depois. **Corrigido (só front):** `availablePositions` (`src/lib/rankPositions.ts`): cada seletor mostra a própria posição e as que ninguém usou; ao desfazer ou trocar a posição volta. Para trocar uma posição de objetivo é preciso primeiro liberá-la ("Não priorizar" ou outra posição). A validação de posição repetida segue igual (dados antigos com repetição ainda mostram o erro).
