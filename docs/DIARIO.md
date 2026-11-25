@@ -2,6 +2,11 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: migração 0042 aplicada por mim no banco (pedido da usuária) e conferida
+- **Pedido da usuária:** "você não consegue rodar?". Rodei o SQL da `0042` com `query_database` do conector do Lovable (DDL direto; **sem mensagem ao agente e sem crédito**). Escrita só aditiva: tabela nova `anamnesis_message_templates`; nenhuma tabela existente alterada.
+- **[V, só leitura, logo depois]:** 9 colunas; RLS ligado; políticas SELECT, INSERT, UPDATE e DELETE (administradores ativos do tenant); `authenticated` com os 4 privilégios e `anon` sem nenhum; 1 trigger `updated_at`; 0 linhas. Reversão: `DROP TABLE public.anamnesis_message_templates;`.
+- **Pendente:** esperar o Lovable sincronizar o `main` (`187ad99`), publicar com OK da usuária e conferir as páginas de e-mail e WhatsApp com a tabela nova.
+
 ## 2026-11-25: Anamnese mesclada em `main` do app (`187ad99`); SQL da 0042 enviado à usuária; nada publicado
 - **Pedido da usuária:** "manda o sql e faz o push no main". O `main` tinha andado (PR #8 do colaborador, `17de53f`, só `EvoAutoSyncCard.tsx`); mesclei o `main` no ramo (sem conflito), suíte **798 testes** e `tsc` limpos de novo, e avancei o `main` por avanço rápido (`17de53f` → `187ad99`). **Não publicado** (nenhum `deploy_project`).
 - **Pendente:** a usuária aplica a migração `0042_anamnesis_message_templates.sql` no SQL editor (SQL enviado no chat); depois conferir a tabela e as políticas no banco (só leitura) e decidir a publicação. Sem a migração, as páginas de e-mail e WhatsApp mostram erro de carregamento.
