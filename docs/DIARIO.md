@@ -2,6 +2,11 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: Anamnese passa a ter só modelos, sem gerenciamento de disparo (proposta v2)
+- **Decisão da usuária:** "lá vai ser só os modelos sem gerenciamento de disparo". Substitui a v1 (que tinha abas de Disparo e janela, plano B etc.). `docs/10-config-anamnese-estrutura.md` reescrito: três cards (Modelos de anamnese, Modelo de WhatsApp, Modelo de e-mail), só textos, prévia e restauração do padrão; tabela `anamnesis_message_templates`; sem função de envio por WhatsApp.
+- **Consequência registrada:** o texto do WhatsApp não terá efeito até existir um envio. As telas de disparo hoje em "Envio e aulas teste" e nos controles de e-mail precisam de outro lugar (recomendado: Integrações).
+- **Pendente (4 decisões):** onde ficam as telas de disparo; texto por rede ou por unidade; tipos (convite, reenvio, lembrete); criar o modelo de WhatsApp já.
+
 ## 2026-11-25: estrutura de Configurações > "Anamnese" (só desenho, nada implementado)
 - **Pedido da usuária:** renomear "Modelos de anamnese" para **Anamnese**, com três cards: Modelos de anamnese (prospect, aluno, disparo), Modelo de WhatsApp e Modelo de e-mail (descrição e disparo); sugestões de configuração do WhatsApp a cargo do Claude.
 - **[V, leitura de `main` (`965fd8c`) e do banco]:** hoje há a página `AdminAnamnesisModels` (abas Modelos e Envio e aulas teste), conexão e controles de e-mail em Integrações/E-mail, conexão do WhatsApp em Integrações/WhatsApp (instâncias Evolution, opt-in, pausa, limite, teste), textos dos e-mails **fixos no código** e **nenhuma função que envie a pré-anamnese por WhatsApp**.
