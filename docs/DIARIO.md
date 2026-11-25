@@ -2,6 +2,11 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: migração 0041 aplicada pela usuária no SQL editor; conferida no banco
+- **[V, só leitura, 25/11]:** `save_presential_anamnesis(uuid, jsonb)` contém `health_required`, a variável `needs_health`, o gatilho de medicamento (PA-14) e manteve `empty_answers`; continua SECURITY INVOKER (como antes); 4.015 caracteres. A usuária rodou o `CREATE OR REPLACE` colado do chat (sem passar pelo Lovable, sem crédito).
+- **Observação:** versões v2 com conversa presencial: 12 (eram 11 hoje cedo), 9 com AP-08 (eram 8); a última versão é de 16:08 UTC, logo depois da publicação, provavelmente um teste ou uso real da usuária. Não investiguei.
+- **Pendente:** teste de ponta a ponta com aluno com gatilho (tela trava sem AP-08; com uma opção marcada salva).
+
 ## 2026-11-25: AP-08 obrigatório mesclado em `main` do app (`8c69d8f`) e publicação iniciada
 - **Pedido da usuária:** "publica vc primeiro" (antes de ela aplicar a migração). `main` do app não tinha mudado desde a base do ramo (`7716818`); avanço rápido por push do ramo para `main`, sem PR. O Lovable passou a enxergar `8c69d8f` (`latest_commit_sha`).
 - **Publicação:** `deploy_project` devolveu `pending` (`deployment_id` 192d1de1…, `https://leventreino.lovable.app`). **[H]** concluída até conferirem a tela; não verifiquei o resultado do deploy. Sem mensagem ao agente do Lovable e sem crédito gasto.
