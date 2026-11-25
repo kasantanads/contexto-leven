@@ -2,6 +2,12 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: estrutura de Configurações > "Anamnese" (só desenho, nada implementado)
+- **Pedido da usuária:** renomear "Modelos de anamnese" para **Anamnese**, com três cards: Modelos de anamnese (prospect, aluno, disparo), Modelo de WhatsApp e Modelo de e-mail (descrição e disparo); sugestões de configuração do WhatsApp a cargo do Claude.
+- **[V, leitura de `main` (`965fd8c`) e do banco]:** hoje há a página `AdminAnamnesisModels` (abas Modelos e Envio e aulas teste), conexão e controles de e-mail em Integrações/E-mail, conexão do WhatsApp em Integrações/WhatsApp (instâncias Evolution, opt-in, pausa, limite, teste), textos dos e-mails **fixos no código** e **nenhuma função que envie a pré-anamnese por WhatsApp**.
+- **Proposta em `docs/10-config-anamnese-estrutura.md`:** mapa de telas, configurações sugeridas por canal, tabela `anamnesis_message_templates`, função nova de envio por WhatsApp, fases A (reorganização) a D, decisões pendentes (7 perguntas).
+- **Alerta registrado:** a conexão é a Evolution API (não oficial); risco de bloqueio do número; mitigação na proposta (limite, janela de horário, intervalo aleatório, opt-in).
+
 ## 2026-11-25: regra de AT (flAulaExperimental) será implementada pelo colaborador; eu reviso o commit
 - **Decisão da usuária:** quem está com ela já está implementando a regra nova; aguardar e revisar o commit dele. **Não escrevi código** da regra no repositório do app (nenhum ramo criado, árvore limpa em `main`).
 - **Decisões da usuária que valem para a revisão:** cliente de uma unidade pode fazer AT em outra; a AT deve ficar **vinculada ao cadastro existente** (não criar aluno novo quando já há cadastro).
