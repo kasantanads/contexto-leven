@@ -2,6 +2,11 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: usuária informa que o disparo já existe; proposta ajustada (nada novo de disparo)
+- **Mensagem da usuária:** "disparo já existe hoje (não sabia quando enviei o prompt)". A proposta v2 já não criava disparo; ficou explícito que **nenhum** gerenciamento de disparo é criado ou movido.
+- **[V, `main` `57b41ee`, 25/11]:** envio da pré-anamnese por e-mail existe (botões da equipe, controles, liberação por unidade). Por WhatsApp só existem conexão, QR, opt-in, pausa, limite e mensagem de teste; **nenhuma função envia a pré-anamnese por WhatsApp**. A régua tem a ação "Enviar WhatsApp" e a caixa de tarefas de contato mostra tarefas de WhatsApp; **não li o que fazem**.
+- **Pendente:** onde fica a aba "Envio e aulas teste" (recomendado: 3ª aba do card Modelos de anamnese); texto por rede ou unidade; tipos de mensagem; qual é o disparo de WhatsApp que a usuária considera existente.
+
 ## 2026-11-25: Anamnese passa a ter só modelos, sem gerenciamento de disparo (proposta v2)
 - **Decisão da usuária:** "lá vai ser só os modelos sem gerenciamento de disparo". Substitui a v1 (que tinha abas de Disparo e janela, plano B etc.). `docs/10-config-anamnese-estrutura.md` reescrito: três cards (Modelos de anamnese, Modelo de WhatsApp, Modelo de e-mail), só textos, prévia e restauração do padrão; tabela `anamnesis_message_templates`; sem função de envio por WhatsApp.
 - **Consequência registrada:** o texto do WhatsApp não terá efeito até existir um envio. As telas de disparo hoje em "Envio e aulas teste" e nos controles de e-mail precisam de outro lugar (recomendado: Integrações).

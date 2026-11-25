@@ -21,7 +21,8 @@ Configurações
    ├─ [card] Modelo de WhatsApp   → textos das mensagens
    └─ [card] Modelo de e-mail     → textos dos e-mails
 ```
-- **Fica fora de Anamnese:** tudo o que é disparo (captura periódica, envio liga/desliga, liberação por unidade, bloqueios, aula teste manual, modo teste, limite, pausa, janela, plano B). **Onde fica** é decisão pendente (item 1 da seção 5).
+- **Disparo: nada novo e nada movido.** A usuária informou que o disparo já existe hoje; então esta entrega **não cria** gerenciamento de disparo (nem janela, plano B, modo automático, lembrete). As telas atuais ficam onde estão: a aba "Envio e aulas teste" (hoje dentro da página de modelos) e os "Controles de envio de e-mail" em Integrações/E-mail. Única pendência: a aba "Envio e aulas teste" fica como **terceira aba do card "Modelos de anamnese"** (Prospect | Aluno | Envio e aulas teste), sem mudança de conteúdo (recomendado), ou sai da página (decisão 1).
+- **WhatsApp [V, `main` `57b41ee`]:** o que existe é conexão, QR, opt-in, pausa, limite e mensagem de teste. **Não há função que envie a pré-anamnese por WhatsApp.** A régua tem um tipo de ação "Enviar WhatsApp" (`AdminReguas.tsx`) e a caixa de tarefas de contato mostra tarefas por WhatsApp; **não li o que elas fazem** e não sei se enviam algo de verdade.
 - A **conexão** (instância e QR do WhatsApp; SMTP/API do e-mail) continua em Integrações.
 
 ## 3. Conteúdo de cada card
@@ -52,7 +53,7 @@ Hoje já existe: seleção das perguntas e textos editáveis por público (Prosp
 - Cada passo que precisa de função reimplantada depende do Lovable (sem créditos hoje) ou de outro caminho combinado.
 
 ## 6. Decisões pendentes
-1. **Onde ficam as telas de disparo** que hoje estão em "Envio e aulas teste" (captura, liberação por unidade, bloqueios, aula teste manual) e nos "Controles de envio de e-mail"? Recomendo **Integrações** (volta a E-mail e WhatsApp), pois a usuária quer Anamnese só com modelos. Alternativa: um card próprio "Envio" em Configurações.
+1. **A aba "Envio e aulas teste"** fica como terceira aba do primeiro card (recomendado, sem mudar conteúdo) ou sai da página de Anamnese? Os controles de e-mail ficam em Integrações, sem mudança.
 2. Os textos valem para a **rede toda** ou **por unidade**? Recomendo rede, com a opção de sobrescrever por unidade depois.
 3. **Tipos de mensagem:** convite e reenvio apenas, ou também **lembrete** (sem disparo ele não tem efeito)?
-4. Aceita criar o **modelo de WhatsApp agora**, sabendo que ele só terá efeito quando existir o envio?
+4. Qual é o **disparo por WhatsApp que já existe**? Não achei função que envie a pré-anamnese por WhatsApp; se existir (por exemplo na régua), me diga onde para o modelo de WhatsApp se ligar a ele. Sem isso, o modelo só terá efeito quando existir o envio.
