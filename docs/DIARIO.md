@@ -2,6 +2,13 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: limpeza das AT falsas feita e regra estrita no ar (commit `dd67865`); falta validar com uma AT real
+- **[V, banco, só leitura, 25/11]:** 104 sessões do painel; 93 canceladas, 11 não canceladas; 75 com a nota "Captura indevida do painel EVO" e 75 linhas em `backup_panel_trial_cleanup` (reversão possível); nenhuma AT de outro caminho alterada; os prospects 45029, 58740 e 46149 ficaram sem sessão ativa. As 11 restantes são de outubro (carga de 22/10 pela API paga), 7 `done`, 1 `in_progress` desde 29/10, 2 `scheduled` com data já passada (1129406-p59338 de 26/10 e 1004904-p59334 de 10/11).
+- **Regra nova (relato do agente, 7,7 créditos, suíte 736):** só cria AT com `flAulaExperimentalServico`, fora de turma fixa (`idTurma`), 1 por prospect em 30 dias; presença só com check-in real após o fim, só em AT. Leitura `dump_fields` (só admin). Conferência de hoje nas 4 unidades: **0 AT criadas**; 23 prospects ignorados (UMI 16, Paraíso 4, Campo Belo 2, Moema Pássaros 1). Nada publicado, sem e-mail.
+- **[V pelo agente] campos do participante nos dois casos falsos:** `flAulaExperimental*`, `flCheckin`, `flRemovido` todos falsos, `idItemVenda` preenchido, `status` 0 (= inscrito, não presença), horário futuro já com `finalizada` verdadeiro.
+- **[H] Risco:** `flAulaExperimentalServico` nunca foi visto verdadeiro em AT real (em 27/11 a marca `flAulaExperimental` vinha falsa). Se o painel nunca marcar, nenhuma AT real entra. **Falta** uma AT real conhecida (unidade, data, horário) para ler os campos e validar; o `idItemVenda` pode ser a alternativa.
+- **Pendentes adiados pela usuária:** filtro de unidade da Agenda; presença/finalizado de sessões de membros.
+
 ## 2026-11-25: plano do agente recebido; execução autorizada só para parar AT falsa e limpar as já criadas
 - **Resposta do agente (modo plano, commit `759092f`, 1 crédito; sobrescreveu `.lovable/plan.md` de novo):** [H, lida só do código] (1) a regra do painel não prova o serviço Aula Teste e aceita fixo/recorrente; (2) `status = 0` do painel vira `present` e `detail.finalizada` vem verdadeiro em horário futuro, por isso `evo_attendance`/`evo_finalized` ficam errados (vale também para membros). **[V, por mim, `Agenda.tsx` no `main`]:** o filtro de unidade só restringe a lista de professores (l. 629–644); a busca `agenda-sessions` (l. 775) filtra só por `teacher_id` e período, sem `unit_id`. Isso explica a AT da Moema Índios no filtro de Campo Belo (professor nas duas unidades).
 - **Decisão da usuária:** "só quero limpar as ATs falsas e fazer com que ele não traga mais, somente as verdadeiras". Fora de escopo por ora: filtro de unidade da Agenda e presença/finalizado de membros (pendentes).
