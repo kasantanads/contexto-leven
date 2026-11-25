@@ -2,6 +2,12 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: PA-07: posição de prioridade já usada não aparece nos demais objetivos, no ramo `fix/prioridades-posicoes-livres` (NÃO mesclado)
+- **Pedido da usuária (print da pré-anamnese):** ao escolher a 1ª prioridade, ela não deve mais estar disponível nos outros objetivos.
+- **[V]** Estava em `RankField.tsx`, componente compartilhado pela **página pública** e pelo **editor de correção da equipe**: todos os seletores ofereciam as 5 posições e a repetição só gerava erro depois. **Corrigido (só front):** `availablePositions` (`src/lib/rankPositions.ts`): cada seletor mostra a própria posição e as que ninguém usou; ao desfazer ou trocar a posição volta. Para trocar uma posição de objetivo é preciso primeiro liberá-la ("Não priorizar" ou outra posição). A validação de posição repetida segue igual (dados antigos com repetição ainda mostram o erro).
+- **Falha minha no caminho:** o primeiro envio ao ramo (`12d4090`) foi feito com **1 teste falhando** (o antigo "posição repetida mostra o erro ao escolher", que previa o comportamento que mudou), porque meu comando encadeado não parava na falha. Corrigi o teste (agora usa dado antigo com repetição e confere que a tela não oferece posição usada) e reenviei; suíte **101 arquivos, 849 testes** passando. Nada foi para o `main` com a falha.
+- **Pendente:** OK da usuária para mesclar; ela publica.
+
 ## 2026-11-25: opções de "nenhum" do AP-08 mescladas em `main` do app (`6be01e3`); publicação com a usuária
 - **Pedido da usuária:** "ok" (mesclar). O `main` tinha andado (PR #14 do colaborador, `send_message_test` do WhatsApp); mesclei o `main` no ramo; **único conflito:** `CHANGELOG.md`, resolvido mantendo as duas entradas. Depois: `tsc` limpo e suíte **99 arquivos, 834 testes** passando. Avanço rápido do `main` (`3bfc905` → `6be01e3`). **Não publiquei** (a publicação é da usuária).
 - **Não feito:** os dois pares contraditórios ("Constante" × "De vez em quando"; "Limita só alguns exercícios" × "Impede de treinar") seguem sem regra; a usuária respondeu só "ok", então tratei como OK para mesclar o que estava pronto.
