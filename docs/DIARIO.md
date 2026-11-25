@@ -2,6 +2,12 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: "Como conduzir" (PA-07) não gerado na pré-anamnese do aluno teste após trocar o provedor de IA (investigação, sem correção)
+- **Relato da usuária:** na pré-anamnese que acabou de preencher no aluno teste, o "Como conduzir" das prioridades não foi gerado; o resumo deu certo; ela trocou o agente (provedor/modelo).
+- **[V, banco, só leitura, 16:43 SP]:** `ai_settings`: OpenAI, modelo `gpt-6-luna`, temperatura 0,4, `max_tokens` 100000, atualizado 15:16 SP; chave OpenAI guardada. Prompt `pa07_direcionamento` ativo (1.541 + 54 caracteres). `ai_logs`: resumo com `gpt-6-luna` às 15:13 e 15:18 (funcionou); **nenhum log de `pa07_direcionamento` com a OpenAI**; o último é de 23/11 21:45 com Gemini; **nenhuma chamada de IA depois das 15:18**. A pré-anamnese nova (16:38, `client_pre`, 5 prioridades, LGPD aceita) está **sem resumo e sem direcionamento** gravados.
+- **[V, leitura do código]:** o direcionamento é gerado sozinho só quando a equipe **abre** o cartão da pré-anamnese na ficha (`PreAnamnesisSummaryCard`), uma vez por versão e por sessão do navegador; não há botão de gerar de novo (removido em 24/11). Uma chamada que falha **antes** de gravar o log não aparece em `ai_logs`; o erro real (400/401/402/403/429/502) volta ao navegador, mas a tela mostra uma mensagem genérica.
+- **[H]** A causa mais provável é que a chamada do direcionamento ainda não foi feita ou falhou antes do log; não consigo ver os logs da função daqui. **Pendente:** a usuária abrir a ficha do aluno teste, recarregar e dizer o texto que aparece no "Como conduzir" e a resposta da chamada `ai-run` na aba Rede do navegador.
+
 ## 2026-11-25: PA-07 (posições livres) mesclado em `main` do app (`6f812d9`); publicação com a usuária
 - **Pedido da usuária:** "sim" (mesclar). `main` não tinha andado (`4493563`, PR #17 do colaborador: `anamnesis-dispatch` com `send_whatsapp`); avanço rápido do ramo para o `main`. `tsc` limpo; suíte do ramo com **101 arquivos, 849 testes** passando. **Não publiquei.**
 - **Atenção ao publicar:** o `main` leva junto o PR #17 do colaborador (envio manual por WhatsApp e função `anamnesis-dispatch`); não verifiquei se a função e a migração dele estão aplicadas.
