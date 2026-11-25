@@ -2,6 +2,12 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: AP-08 obrigatório mesclado em `main` do app (`8c69d8f`) e publicação iniciada
+- **Pedido da usuária:** "publica vc primeiro" (antes de ela aplicar a migração). `main` do app não tinha mudado desde a base do ramo (`7716818`); avanço rápido por push do ramo para `main`, sem PR. O Lovable passou a enxergar `8c69d8f` (`latest_commit_sha`).
+- **Publicação:** `deploy_project` devolveu `pending` (`deployment_id` 192d1de1…, `https://leventreino.lovable.app`). **[H]** concluída até conferirem a tela; não verifiquei o resultado do deploy. Sem mensagem ao agente do Lovable e sem crédito gasto.
+- **Atenção:** publicar leva ao ar **tudo** que está no `main`, inclusive mudanças de front de outras pessoas (PR #1 e #2: opção Painel e "Sincronizar agora" de aulas teste; botão de teste de e-mail) que talvez ainda não estivessem publicadas.
+- **Pendente:** a usuária aplica a migração `0041` (passo a passo enviado; reversão em `docs/sql/0041-reversao-save-presential-anamnesis.sql`); depois conferir a função no banco e testar com um aluno com gatilho.
+
 ## 2026-11-25: AP-08 obrigatório implementado no ramo `feat/ap08-obrigatorio` (commit `8c69d8f`, NÃO mesclado, migração NÃO aplicada)
 - **Autorização da usuária:** "pode seguir", depois das decisões (basta um campo; só ao salvar; sem cobrança retroativa) e das listas de opções em `docs/09-ap08-obrigatorio-estrutura.md`. A usuária avisou que o Lovable está **sem créditos**: nada foi enviado ao agente. Repositório do app (`fernandosmoraes/leventreino`) anexado à sessão; clone em `/home/user/leventreino`.
 - **[V] Feito no ramo (só front + arquivo de migração):** regra `healthMissing`/`isHealthAnswerFilled` (`presentialAnswers.ts`, `presentialHealth.ts`); `preparePresentialAnswers` lança `health_required`; formulário com caixas de seleção (localização por região e lado, quando ocorre, movimentos que pioram, impacto, situação do quadro opcional, acompanhamento + profissionais, orientações, documento do PAR-Q com "Nenhum documento ainda"), cada uma com "Outro"; rótulo "Obrigatório", aviso e botão de salvar travado; mensagem específica também na ficha (`StudentAnamnesisPage`). Mesmo texto serializado: sem migração de dados; texto antigo continua legível (aparece em "Outro"/"Outras informações").
