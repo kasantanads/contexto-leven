@@ -2,6 +2,14 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: Anamnese (3 cards + modelos de e-mail e WhatsApp) implementado no ramo `feat/anamnese-modelos` (commit `0245ca0`, NÃO mesclado, migração NÃO aplicada)
+- **Decisões da usuária:** texto da **rede toda** por enquanto; tipos **convite, reenvio e lembrete**; **não ligar a nenhum disparo**. A aba "Envio e aulas teste" não foi respondida: mantida onde está (dentro de "Modelos de anamnese").
+- **[V, feito no ramo, só front + arquivo de migração]:** card do menu vira "Anamnese" (`/admin/anamnese`; `/admin/modelos-anamnese` redireciona); hub com 3 cards; "Modelos de anamnese" = a página atual sem mudar conteúdo (`/admin/anamnese/modelos`); editores de e-mail e WhatsApp (`MessageTemplatesEditor`): abas Prospect/Aluno, 3 tipos, variáveis `{{primeiro_nome}}`, `{{link}}`, `{{prazo}}`, `{{unidade}}`, validação (exige `{{link}}`, sem endereços digitados, limites 2.000/500, assunto sem quebra), prévia com dados fictícios, restaurar padrão (remove a linha). Textos padrão de convite = e-mails de hoje.
+- **Sem efeito no envio:** `send-transactional-email` e as demais funções **não foram alteradas** e não leem os modelos; nenhuma reimplantação necessária.
+- **Testes (rodados por mim):** suíte **95 arquivos, 798 testes** passando; `tsc` limpo; lint limpo nos arquivos novos.
+- **Migração `0042_anamnesis_message_templates.sql`:** tabela nova com RLS só para administradores ativos do tenant; escrita, **não aplicada**. Sem ela, as páginas de e-mail e WhatsApp mostram mensagem de erro ao carregar.
+- **Pendente:** revisão do diff pela usuária; ela aplica a 0042 no SQL editor; só então mesclar e publicar.
+
 ## 2026-11-25: usuária informa que o disparo já existe; proposta ajustada (nada novo de disparo)
 - **Mensagem da usuária:** "disparo já existe hoje (não sabia quando enviei o prompt)". A proposta v2 já não criava disparo; ficou explícito que **nenhum** gerenciamento de disparo é criado ou movido.
 - **[V, `main` `57b41ee`, 25/11]:** envio da pré-anamnese por e-mail existe (botões da equipe, controles, liberação por unidade). Por WhatsApp só existem conexão, QR, opt-in, pausa, limite e mensagem de teste; **nenhuma função envia a pré-anamnese por WhatsApp**. A régua tem a ação "Enviar WhatsApp" e a caixa de tarefas de contato mostra tarefas de WhatsApp; **não li o que fazem**.
