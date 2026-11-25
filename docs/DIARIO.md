@@ -2,6 +2,12 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: estrutura do AP-08 obrigatório (só desenho, nada implementado)
+- **Pedido da usuária:** na conversa presencial, "Saúde e segurança" (AP-08) obrigatório quando houver dor, lesão, cirurgia, medicamento, condição clínica ou "sim" no PAR-Q; alterações pelo git; estruturar e mostrar antes de implementar.
+- **[V, leitura do `main` e do banco]:** o AP-08 já aparece só nesses gatilhos (`hasHealth`), mas nenhum campo é obrigatório: salvar exige uma resposta qualquer (`preparePresentialAnswers`; RPC `save_presential_anamnesis`). `trial_finish` não checa saúde (trava de conduta saiu em 24/11). Versões v2: 21; 11 com conversa presencial; 8 com AP-08; 17 com gatilho básico; **2 com gatilho e presencial sem AP-08**.
+- **Proposta em `docs/09-ap08-obrigatorio-estrutura.md`:** regra pura compartilhada, trava no formulário e na RPC (migração via Lovable, só com OK), sem retroagir, sem mexer no encerramento da AT. Ramo `feat/ap08-obrigatorio` no repositório do app (`fernandosmoraes/leventreino`), diff para revisão antes de mesclar.
+- **Pendente (decisão da usuária):** o que conta como "preenchido"; se bloqueia também ao encerrar a AT; se a trava vai também ao servidor; o que fazer com as 2 versões antigas. Repositório do app ainda não anexado a esta sessão.
+
 ## 2026-11-25: AT real fornecida pela usuária (Campo Belo, 26/11, 20h–21h, Personal); leitura pedida ao agente
 - **Fornecido pela usuária (print do painel do EVO):** o participante aparece com a marca "(Aula Experimental)" no horário de 26/11 20:00–21:00, Personal Trainer, Campo Belo. **[V pela tela]** o painel mostra um indicador de AT; **[H]** qual campo da API o alimenta (`flAulaExperimentalServico`? `idItemVenda`?). Nome do participante **não registrado** em arquivo nem na mensagem ao agente.
 - **Mudança de outra pessoa [V, `list_edits`]:** PR #1 de `fernandosmoraes` mesclado hoje (commits `8478948` 15:18 e `e577d65` 15:32 UTC): nova função `evo-web-sync-trials` (lê o perfil do prospect no painel e completa só e-mail e celular vazios de quem já tem AT) e opção "Painel" na sincronização automática; migração `0040` aceita `source web` em `trials`; nenhuma linha existente muda. Avisei o agente para reler o `main`.
