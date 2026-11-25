@@ -2,6 +2,10 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: Anamnese mesclada em `main` do app (`187ad99`); SQL da 0042 enviado à usuária; nada publicado
+- **Pedido da usuária:** "manda o sql e faz o push no main". O `main` tinha andado (PR #8 do colaborador, `17de53f`, só `EvoAutoSyncCard.tsx`); mesclei o `main` no ramo (sem conflito), suíte **798 testes** e `tsc` limpos de novo, e avancei o `main` por avanço rápido (`17de53f` → `187ad99`). **Não publicado** (nenhum `deploy_project`).
+- **Pendente:** a usuária aplica a migração `0042_anamnesis_message_templates.sql` no SQL editor (SQL enviado no chat); depois conferir a tabela e as políticas no banco (só leitura) e decidir a publicação. Sem a migração, as páginas de e-mail e WhatsApp mostram erro de carregamento.
+
 ## 2026-11-25: Anamnese (3 cards + modelos de e-mail e WhatsApp) implementado no ramo `feat/anamnese-modelos` (commit `0245ca0`, NÃO mesclado, migração NÃO aplicada)
 - **Decisões da usuária:** texto da **rede toda** por enquanto; tipos **convite, reenvio e lembrete**; **não ligar a nenhum disparo**. A aba "Envio e aulas teste" não foi respondida: mantida onde está (dentro de "Modelos de anamnese").
 - **[V, feito no ramo, só front + arquivo de migração]:** card do menu vira "Anamnese" (`/admin/anamnese`; `/admin/modelos-anamnese` redireciona); hub com 3 cards; "Modelos de anamnese" = a página atual sem mudar conteúdo (`/admin/anamnese/modelos`); editores de e-mail e WhatsApp (`MessageTemplatesEditor`): abas Prospect/Aluno, 3 tipos, variáveis `{{primeiro_nome}}`, `{{link}}`, `{{prazo}}`, `{{unidade}}`, validação (exige `{{link}}`, sem endereços digitados, limites 2.000/500, assunto sem quebra), prévia com dados fictícios, restaurar padrão (remove a linha). Textos padrão de convite = e-mails de hoje.
