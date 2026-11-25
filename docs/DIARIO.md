@@ -2,6 +2,11 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: "Todas as unidades" removido mesclado em `main` do app (`af701c7`); a usuária publica
+- **Pedido da usuária:** "só mescla, deixa que eu publico". O `main` tinha andado (PRs #10 e #11 do colaborador: WhatsApp com vários números, IA por provedor, migrações `0043` e `0044`); mesclei o `main` no ramo. **Único conflito:** `CHANGELOG.md` (duas linhas no topo); resolvido mantendo as duas entradas. Depois da mescla: `tsc` limpo e suíte **98 arquivos, 817 testes** passando. Avanço rápido do `main` (`fe16458` → `af701c7`).
+- **Não publiquei** (nenhum `deploy_project`); a publicação é da usuária. **Atenção:** publicar leva junto o trabalho do colaborador no `main` (WhatsApp com vários números, IA por provedor); as migrações `0043` e `0044` dele precisam estar aplicadas no banco, e não verifiquei isso.
+- **Para conferir depois de publicar:** na Agenda filtrar Campo Belo e não ver sessões da Moema Índios; lista Aulas teste com uma unidade.
+
 ## 2026-11-25: "Todas as unidades" removido da Agenda e das Aulas teste no ramo `feat/unidade-unica` (commit `edb2203`, NÃO mesclado)
 - **Autorização da usuária:** "segue". Sem resposta às 3 perguntas do plano, adotei as recomendações: escopo só **Agenda** e **Aulas teste**, dashboards e demais listas mantidos, última unidade lembrada.
 - **[V, feito no ramo, só front]:** `selectedUnit.ts` + `useSelectedUnit` (última usada > primeira vinculada > primeira da lista; guardada por usuário no navegador); Agenda (admin/supervisor/coordenador) sem a opção, com sessões, reposições e agenda base filtradas pela unidade (`unit_id`; base pelo aluno), e nada buscado antes de a unidade estar definida; Aulas teste com seletor de uma unidade (some com uma só). Corrige a AT da Moema Índios aparecendo em Campo Belo.
