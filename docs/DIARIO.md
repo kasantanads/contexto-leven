@@ -2,6 +2,14 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: AT falsas pela agenda automática; análise pedida ao Lovable (modo plano, sem alterar nada)
+- **Relato da usuária:** a AT de 25/11 21h da Moema Índios (`1142915-p45029`) **não existe no EVO**; além disso, ao filtrar Campo Belo no Leven apareceu uma AT da Moema Índios.
+- **[V, banco, só leitura, 25/11]:** 104 sessões `experimental` com `evo_schedule_id` no padrão `-p<prospect>` (51 prospects): Campo Belo 33, Paraíso 45, Moema Pássaros 14, Moema Índios 12. Prospect 45029 (Moema Índios): 4 sessões às 21h em 23, 24, 25 e 27/11, todas `evo_attendance = present` e `evo_finalized = true`, inclusive as futuras. Prospect 58740 (Paraíso): 26 sessões em 22 horários entre 23 e 25/11; 46149 (Paraíso): 5. Todas com `trial_email_eligible = false`.
+- **[V]** Sessão e aluno da `1142915-p45029` estão gravados em Moema Índios; o professor está em `teacher_units` de Campo Belo e Moema Índios. **[H]** o filtro de unidade usa o vínculo do professor (não confirmado no código).
+- **[H]** A regra do painel (`idCliente` nulo + `idProspect` + `tipoAlunos = 2` + Personal) não confere o serviço "Aula Teste" e aceita cadastro fixo/recorrente ou interno.
+- **[LOVABLE] enviado, modo plano (`umsg_01m89j88…`, `wait=false`), com OK da usuária ("analise isso com o lovable"):** `last_edited_at` conferido antes (24/11 21:23, agente parado, sem edições novas). Pede diagnóstico dos campos do painel, regra mais estrita, causa do filtro de unidade e plano de limpeza só com SELECT. Nada implementado.
+- **Pendente:** ler a resposta, revisar, e só com OK da usuária implementar, limpar as AT falsas e corrigir o filtro.
+
 ## 2026-11-24 13:10: remoção da conduta mesclada em `main` (`6771dde`); falta publicar
 - **[V]** `feat/remove-conduta` mesclado em `main` por avanço rápido, com OK explícito da usuária. O Lovable já tem o código (`HEALTH_CONDUTA_OPTIONS` não existe mais no projeto). Banco já estava pronto (prompt novo e trava neutralizada). **Nada publicado.**
 - **Falta:** a usuária publicar o site; depois conferir (1) tela da AT: encerrar com alerta sem pedir conduta; (2) cartão da pré-anamnese sem selo "Bloqueada, aguardando conduta" e roteiro sem o campo Conduta; (3) primeira geração do resumo de IA com o bloco "Indicação" e o tamanho da saída (< 1.000 tokens).
