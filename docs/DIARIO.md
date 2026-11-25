@@ -2,6 +2,14 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: AP-08: opções de "nenhum" exclusivas, no ramo `fix/ap08-opcoes-exclusivas` (commit `8d6ad5f`, NÃO mesclado)
+- **Relato da usuária (print):** em Saúde e segurança era possível marcar "Nenhum" junto de outras opções em Impacto funcional, e a regra errada podia valer em outras perguntas.
+- **[V, auditoria do AP-08 que eu criei]:** 4 perguntas tinham opção de "nenhum" sem exclusividade: Impacto funcional ("Nenhum"), Movimentos que pioram ("Nenhum específico"), Orientações ou restrições ("Sem restrição") e Documento do PAR-Q ("Nenhum documento ainda"). Localização, Quando ocorre e Profissionais não têm essa opção. **[V, leitura]:** na pré-anamnese online a "Nenhuma" de PA-09 já é exclusiva (página pública, editor de correção e validação do servidor); as demais perguntas online de múltipla escolha não têm "nenhum". O defeito era só do AP-08 novo.
+- **Corrigido no ramo (só front):** marcar a "nenhum" limpa as outras e o campo "Outro"; marcar outra opção ou digitar em "Outro" desmarca a "nenhum"; respostas salvas com mistura são normalizadas ao exibir e ao gravar (ficam as específicas).
+- **Testes (rodados por mim):** 98 arquivos, **830 testes** passando; `tsc` e lint dos arquivos alterados limpos.
+- **Não alterado (decisão pendente):** pares que se contradizem sem ser "nenhum": "Constante" × "De vez em quando" (Quando ocorre) e "Limita só alguns exercícios" × "Impede de treinar" (Impacto funcional).
+- **Pendente:** OK da usuária para mesclar; ela publica.
+
 ## 2026-11-25: "Todas as unidades" removido mesclado em `main` do app (`af701c7`); a usuária publica
 - **Pedido da usuária:** "só mescla, deixa que eu publico". O `main` tinha andado (PRs #10 e #11 do colaborador: WhatsApp com vários números, IA por provedor, migrações `0043` e `0044`); mesclei o `main` no ramo. **Único conflito:** `CHANGELOG.md` (duas linhas no topo); resolvido mantendo as duas entradas. Depois da mescla: `tsc` limpo e suíte **98 arquivos, 817 testes** passando. Avanço rápido do `main` (`fe16458` → `af701c7`).
 - **Não publiquei** (nenhum `deploy_project`); a publicação é da usuária. **Atenção:** publicar leva junto o trabalho do colaborador no `main` (WhatsApp com vários números, IA por provedor); as migrações `0043` e `0044` dele precisam estar aplicadas no banco, e não verifiquei isso.
