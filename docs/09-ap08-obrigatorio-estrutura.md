@@ -52,8 +52,24 @@ Dados atuais (versões v2): 21 versões; 11 com conversa presencial salva; 8 com
 - **Divergência tela x servidor:** coberta por usar a mesma regra e por teste com os mesmos casos.
 - **Sem CPF/nome** em testes: usar dados fictícios, como nos testes atuais.
 
-## 7. Perguntas para decidir antes de implementar
-1. **O que é "preenchido"?** (a) mínimo proposto: Impacto funcional + Acompanhamento profissional + Documento (se PAR-Q "sim"); (b) basta **um** campo qualquer do AP-08; (c) **todos** os campos, exceto Orientações (opcional).
-2. **Onde bloquear?** (a) só ao **salvar a conversa** (recomendado); (b) também ao **encerrar a AT** (traz de volta um bloqueio no encerramento, parecido com a conduta que saiu em 24/11).
-3. **Servidor:** (a) tela + RPC (recomendado, impede burlar pela API); (b) só a tela.
-4. **Versões antigas sem AP-08:** (a) não cobrar até serem editadas (proposto); (b) listar para o professor completar.
+## 7. Decisões da usuária (25/11/2026)
+1. **"Preenchido" = basta um campo qualquer** do AP-08 (com as perguntas novas em múltipla escolha, basta uma opção marcada ou um texto).
+2. **Bloqueio só ao salvar a conversa** (nada no encerramento da AT).
+3. **Tela + servidor:** não respondido; segue a recomendação (os dois) até a usuária dizer o contrário.
+4. **Versões já salvas ficam sem cobrança.**
+
+## 8. Sugestão: AP-08 em múltipla escolha (proposta, não implementada)
+Princípios: sem escala de dor ou intensidade (a usuária tirou "intensidade" do Leven); cada pergunta com "Outro" (texto curto); "Nenhum" exclusivo onde fizer sentido; os rótulos não podem conter ";".
+
+| Campo | Tipo | Opções sugeridas |
+|---|---|---|
+| **Localização** | caixas por região + lado (Direito, Esquerdo, Ambos) | Pescoço/cervical; Ombro; Braço/cotovelo; Punho/mão; Peito/tórax; Coluna alta (torácica); Coluna lombar; Abdômen; Quadril/virilha; Coxa; Joelho; Panturrilha/canela; Tornozelo/pé; Cabeça; Outro |
+| **Quando ocorre** | caixas | Em repouso; Durante o exercício; Depois do treino; Ao acordar; No fim do dia; Ao ficar muito tempo sentado; Ao ficar muito tempo em pé; Ao caminhar ou subir escadas; À noite/ao dormir; De vez em quando; Constante; Outro |
+| **Movimentos que pioram** | caixas | Agachar; Inclinar o tronco à frente; Estender a coluna/olhar para cima; Girar o tronco; Elevar o braço acima da cabeça; Empurrar ou puxar; Carregar peso; Saltar ou correr (impacto); Subir/descer escadas; Deitar de bruços ou de lado; Nenhum específico; Outro |
+| **Impacto funcional** | caixas | Nenhum; Limita só alguns exercícios; Limita atividades do dia a dia; Atrapalha o sono; Atrapalha o trabalho; Usa apoio (cinta, joelheira, tala); Impede de treinar; Outro |
+| **Acompanhamento profissional** | Sim/Não e, se Sim, caixas | Médico; Ortopedista; Cardiologista; Fisioterapeuta; Educador físico; Nutricionista; Psicólogo; Outro |
+| **Orientações ou restrições recebidas** | caixas | Sem restrição; Evitar impacto; Evitar carga alta; Limitar amplitude de movimento; Evitar exercícios acima da cabeça; Evitar flexão de tronco; Controlar esforço/frequência cardíaca; Aguardar liberação médica; Outro (texto) |
+| **Documento do PAR-Q** | caixas (já é) | Termo aceito na pré-anamnese; Atestado médico apresentado; Nenhum documento ainda (novo) |
+| *(novo, opcional)* **Situação do quadro** | única | Controlado com tratamento; Em investigação; Com sintomas recentes; Sem tratamento |
+
+Armazenamento: manter o texto serializado atual ("Rótulo: a; b"), como já ocorre no Documento, sem migração de dados. Respostas antigas em texto livre continuam legíveis (vão para "Outras informações"). Detalhe: com caixas e lado, a Localização grava, por exemplo, "Joelho (Direito); Lombar".
