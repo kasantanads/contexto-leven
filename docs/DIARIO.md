@@ -2,6 +2,12 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: publicação do `main` do app iniciada (Anamnese, badges do AP-08, AP-08 obrigatório e mudanças do colaborador)
+- **Autorização da usuária:** "sim" (conferir se o Lovable enxerga o `187ad99` e publicar). `list_edits` mostrou o Lovable em `187ad99` e, depois dele, o PR #9 do colaborador (`8cb86bf`, 17:33 UTC): "Agenda: selo AT na aula experimental e contraste do texto". Publiquei o `main` como estava, inclusive o PR #9.
+- **Publicação:** `deploy_project` devolveu `pending` (`adc7ac59…`, `https://leventreino.lovable.app`). **[H]** concluída; não verifiquei o resultado do deploy. Sem mensagem ao agente e sem crédito.
+- **Vai ao ar junto:** card Anamnese e modelos de e-mail e WhatsApp (tabela já criada), badges no AP-08, botões de sincronização manual (PR #7, #8) e o selo AT na agenda (PR #9).
+- **Pendente:** a usuária confere as telas; a regra de AT (`flAulaExperimental`) segue com o colaborador, e a restauração das 29 ATs da API paga aguarda OK.
+
 ## 2026-11-25: migração 0042 aplicada por mim no banco (pedido da usuária) e conferida
 - **Pedido da usuária:** "você não consegue rodar?". Rodei o SQL da `0042` com `query_database` do conector do Lovable (DDL direto; **sem mensagem ao agente e sem crédito**). Escrita só aditiva: tabela nova `anamnesis_message_templates`; nenhuma tabela existente alterada.
 - **[V, só leitura, logo depois]:** 9 colunas; RLS ligado; políticas SELECT, INSERT, UPDATE e DELETE (administradores ativos do tenant); `authenticated` com os 4 privilégios e `anon` sem nenhum; 1 trigger `updated_at`; 0 linhas. Reversão: `DROP TABLE public.anamnesis_message_templates;`.
