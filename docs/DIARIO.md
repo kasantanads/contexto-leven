@@ -2,6 +2,10 @@
 
 Modelo em `00-como-colaborar.md`.
 
+## 2026-11-25: opções de "nenhum" do AP-08 mescladas em `main` do app (`6be01e3`); publicação com a usuária
+- **Pedido da usuária:** "ok" (mesclar). O `main` tinha andado (PR #14 do colaborador, `send_message_test` do WhatsApp); mesclei o `main` no ramo; **único conflito:** `CHANGELOG.md`, resolvido mantendo as duas entradas. Depois: `tsc` limpo e suíte **99 arquivos, 834 testes** passando. Avanço rápido do `main` (`3bfc905` → `6be01e3`). **Não publiquei** (a publicação é da usuária).
+- **Não feito:** os dois pares contraditórios ("Constante" × "De vez em quando"; "Limita só alguns exercícios" × "Impede de treinar") seguem sem regra; a usuária respondeu só "ok", então tratei como OK para mesclar o que estava pronto.
+
 ## 2026-11-25: AP-08: opções de "nenhum" exclusivas, no ramo `fix/ap08-opcoes-exclusivas` (commit `8d6ad5f`, NÃO mesclado)
 - **Relato da usuária (print):** em Saúde e segurança era possível marcar "Nenhum" junto de outras opções em Impacto funcional, e a regra errada podia valer em outras perguntas.
 - **[V, auditoria do AP-08 que eu criei]:** 4 perguntas tinham opção de "nenhum" sem exclusividade: Impacto funcional ("Nenhum"), Movimentos que pioram ("Nenhum específico"), Orientações ou restrições ("Sem restrição") e Documento do PAR-Q ("Nenhum documento ainda"). Localização, Quando ocorre e Profissionais não têm essa opção. **[V, leitura]:** na pré-anamnese online a "Nenhuma" de PA-09 já é exclusiva (página pública, editor de correção e validação do servidor); as demais perguntas online de múltipla escolha não têm "nenhum". O defeito era só do AP-08 novo.
